@@ -2,14 +2,14 @@ import { useState } from 'react';
 import useRecipeStore from '../recipeStore';
 
 const AddRecipeForm = () => {
-  const addRecipe = useRecipeStore((state) => state.addRecipe); // Access the addRecipe action
+  const addRecipe = useRecipeStore((state) => state.addRecipe);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    addRecipe({ id: Date.now(), title, description }); // Add a new recipe
-    setTitle(''); // Reset the form
+    addRecipe({ id: Date.now(), title, description });
+    setTitle('');
     setDescription('');
   };
 
