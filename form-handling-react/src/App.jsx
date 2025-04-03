@@ -5,19 +5,16 @@ import './App.css';
 function App() {
   return (
     <div className="app-container">
-      <h1>React Form Handling Comparison</h1>
-      <p>Demonstrating controlled components vs. Formik</p>
+      <h1>Form Handling Comparison</h1>
       
       <div className="forms-grid">
-        {/* Controlled Component Form */}
-        <div className="form-card">
-          <h2>Controlled Component</h2>
+        <div className="form-container">
+          <h2>Controlled Component Form</h2>
           <RegistrationForm />
         </div>
-
-        {/* Formik Form */}
-        <div className="form-card">
-          <h2>Formik Implementation</h2>
+        
+        <div className="form-container">
+          <h2>Formik Form</h2>
           <FormikForm />
         </div>
       </div>
