@@ -2,7 +2,7 @@ cat > src/App.jsx << 'EOF'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home/Home';
 import About from './components/About/About';
-import Profile from './components/Profile/Profile';
+import Profile from './components/Profile';
 import Post from './components/Post/Post';
 import Login from './components/Login/Login';
 import NotFound from './components/NotFound/NotFound';

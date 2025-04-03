@@ -1,6 +1,6 @@
 cat > src/components/Profile/Profile.jsx << 'EOF'
 import { Routes, Route, Link, Outlet } from 'react-router-dom';
-import ProfileDetails from './ProfileDetails';
+import ProfileDetails from './Profile/ProfileDetails';
 import ProfileSettings from './ProfileSettings';
 
 const Profile = () => {
