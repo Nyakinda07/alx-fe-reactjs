@@ -1,3 +1,4 @@
+cat > src/App.jsx << 'EOF'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './components/Home/Home';
 import About from './components/About/About';
@@ -22,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/profile" element={
+          <Route path="/profile/*" element={
             <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
@@ -37,3 +38,4 @@ function App() {
 }
 
 export default App;
+EOF
