@@ -1,4 +1,3 @@
-// src/components/RegistrationForm.js
 import { useState } from 'react';
 
 export default function RegistrationForm() {
@@ -27,7 +26,6 @@ export default function RegistrationForm() {
     e.preventDefault();
     if (validate()) {
       console.log('Submitting:', formData);
-      // API call would go here
       alert('Registration successful!');
     }
   };
@@ -39,7 +37,7 @@ export default function RegistrationForm() {
         <input
           type="text"
           name="username"
-          value={formData.username}
+          value={formData.username}  {/* Explicit value binding */}
           onChange={handleChange}
         />
         {errors.username && <span className="error">{errors.username}</span>}
@@ -50,7 +48,7 @@ export default function RegistrationForm() {
         <input
           type="email"
           name="email"
-          value={formData.email}
+          value={formData.email}  {/* Explicit value binding */}
           onChange={handleChange}
         />
         {errors.email && <span className="error">{errors.email}</span>}
@@ -61,7 +59,7 @@ export default function RegistrationForm() {
         <input
           type="password"
           name="password"
-          value={formData.password}
+          value={formData.password}  {/* Explicit value binding */}
           onChange={handleChange}
         />
         {errors.password && <span className="error">{errors.password}</span>}
