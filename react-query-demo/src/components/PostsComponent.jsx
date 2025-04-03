@@ -2,9 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 const fetchPosts = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-  if (!response.ok) {
-    throw new Error('Failed to fetch posts');
-  }
+  if (!response.ok) throw new Error('Network response failed');
   return response.json();
 };
 
@@ -19,7 +17,10 @@ const PostsComponent = () => {
   } = useQuery({
     queryKey: ['posts'],
     queryFn: fetchPosts,
-    staleTime: 5000, // Data stays fresh for 5 seconds
+    cacheTime: 60000, // Cache persists for 60 seconds
+    staleTime: 10000, // Data stays fresh for 10 seconds
+    refetchOnWindowFocus: true, // Auto-refresh when window regains focus
+    keepPreviousData: true, // Maintain previous data during refetches
   });
 
   if (isLoading) return <div className="loading">Loading posts...</div>;
@@ -27,9 +28,19 @@ const PostsComponent = () => {
 
   return (
     <div className="posts-container">
-      <h2>Posts {isFetching && <span>(updating...)</span>}</h2>
-      <button onClick={() => refetch()} className="refresh-btn">
-        Refresh Posts
+      <h2>
+        Posts 
+        {isFetching && <span className="fetch-indicator">(updating...)</span>}
+      </h2>
+      <div className="cache-info">
+        <small>Cache: 60s | Stale: 10s | Refetch on focus</small>
+      </div>
+      <button 
+        onClick={() => refetch()} 
+        className="refresh-btn"
+        disabled={isFetching}
+      >
+        {isFetching ? 'Refreshing...' : 'Refresh Posts'}
       </button>
       <ul className="posts-list">
         {posts.map((post) => (
