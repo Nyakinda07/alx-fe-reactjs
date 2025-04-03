@@ -1,22 +1,27 @@
-import RegistrationForm from './components/RegistrationForm';
-import FormikForm from './components/FormikForm';
 import './App.css';
+import RegistrationForm from './components/RegistrationForm';
+import FormikForm from './components/formikForm'; // Note lowercase filename
 
 function App() {
   return (
-    <div className="app-container">
-      <h1>Form Handling Comparison</h1>
-      
-      <div className="forms-grid">
-        <div className="form-container">
+    <div className="App">
+      <header className="App-header">
+        <h1>React Form Handling Comparison</h1>
+        <p>Demonstrating controlled components vs. Formik</p>
+      </header>
+
+      <div className="forms-container">
+        {/* Controlled Component Form */}
+        <section className="form-section">
           <h2>Controlled Component Form</h2>
           <RegistrationForm />
-        </div>
-        
-        <div className="form-container">
-          <h2>Formik Form</h2>
+        </section>
+
+        {/* Formik Form */}
+        <section className="form-section">
+          <h2>Formik Implementation</h2>
           <FormikForm />
-        </div>
+        </section>
       </div>
     </div>
   );
